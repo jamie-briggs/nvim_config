@@ -4,7 +4,7 @@ call plug#begin('~/.nvim/plugged')
 
 " syntax highlighting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'neovim/nvim-lspconfig'
