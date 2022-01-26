@@ -1,6 +1,9 @@
 " set leader key
 let g:mapleader = "\<Space>"
 
+" Do not highlight the matching parenthesis, it appears like the cursor!
+let g:loaded_matchparen=1
+
 set hidden                  " Required to keep multiple buffers open
 set laststatus=0            " Always display the status line
 
@@ -8,8 +11,13 @@ set nocompatible            " disable compatibility to old-time vi
 set encoding=utf-8          " character encoding 
 set fileencoding=utf-8          " character encoding 
 
-set showmatch               " show matching brackets.
+" SEARCHING
+set noincsearch
+set hlsearch
 set ignorecase              " case insensitive matching
+set smartcase               " turns off ignorecase if caps are used in term
+
+set showmatch               " show matching brackets.
 set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
 "set number                  " add line numbers
@@ -38,6 +46,11 @@ set formatoptions-=cro      " Stop newline continuation of comments
 
 filetype plugin on     " syntax support
 syntax on
+
+" In text files, always limit the width of text to 118 characters
+autocmd BufRead *.txt set tw=118
+" When editing a file, always jump to the last cursor position
+autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
 
 set tabstop=2               " number of columns occupied by a tab character
 set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
